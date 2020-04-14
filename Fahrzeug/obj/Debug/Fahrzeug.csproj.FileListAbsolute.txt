@@ -1,0 +1,5 @@
+C:\Users\Alex\source\repos\Fahrzeug\bin\Debug\Fahrzeug.dll
+C:\Users\Alex\source\repos\Fahrzeug\bin\Debug\Fahrzeug.pdb
+C:\Users\Alex\source\repos\Fahrzeug\obj\Debug\Fahrzeug.csprojAssemblyReference.cache
+C:\Users\Alex\source\repos\Fahrzeug\obj\Debug\Fahrzeug.dll
+C:\Users\Alex\source\repos\Fahrzeug\obj\Debug\Fahrzeug.pdb
