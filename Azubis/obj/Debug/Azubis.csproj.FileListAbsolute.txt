@@ -1,0 +1,6 @@
+C:\Users\Alex\source\repos\Azubis\bin\Debug\Azubis.exe.config
+C:\Users\Alex\source\repos\Azubis\bin\Debug\Azubis.exe
+C:\Users\Alex\source\repos\Azubis\bin\Debug\Azubis.pdb
+C:\Users\Alex\source\repos\Azubis\obj\Debug\Azubis.csprojAssemblyReference.cache
+C:\Users\Alex\source\repos\Azubis\obj\Debug\Azubis.exe
+C:\Users\Alex\source\repos\Azubis\obj\Debug\Azubis.pdb

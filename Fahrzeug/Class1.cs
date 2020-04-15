@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fahrzeug
+﻿namespace Fahrzeug
 {
-    public class Identifizierung
+    public class Fahrzeug
     {
         public string Baujahr { get; set; }
         public string Marke { get; set; }
@@ -15,13 +9,13 @@ namespace Fahrzeug
         public string Kennzeichen { get; set; }
         public string Eigentümer { get; set; }
 
-        public Identifizierung(string Modell, string Eigentümer, string Kennzeichen)
+        public Fahrzeug(string Modell, string Eigentümer, string Kennzeichen)
         {
             this.Modell = Modell;
             this.Eigentümer = Eigentümer;
             this.Kennzeichen = Kennzeichen;
         }
-        public Identifizierung(string Modell, string Eigentümer, string Kennzeichen, string Baujahr)
+        public Fahrzeug(string Modell, string Eigentümer, string Kennzeichen, string Baujahr)
         {
             this.Modell = Modell;
             this.Eigentümer = Eigentümer;
@@ -30,7 +24,8 @@ namespace Fahrzeug
         }
         public string erhoeheLaufleistung(string Laufleistung)
         {
-            return ("Die Laufleistung beträgt:" + Laufleistung +"Kilometer");
+            return ("Das Modell" + " " + Modell+ " " + "mit dem Kennzeichen" + " " + Kennzeichen + " " + "Vom Eigentümer " + " " + Eigentümer + 
+                " " + "besitzt eine Laufleistung von" + " " + Laufleistung + " "+ "Killometern");
         }
     }
 }
