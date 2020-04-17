@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace Azubis
 {
         public class Azubi
@@ -31,46 +32,58 @@ namespace Azubis
         {
             static void Main(string[] args)
             {
-            AuswahlMenue();
+            List<Azubi> MeineAzubiListe = new List<Azubi>();
+                AnganbenAuswahl();
             }
-        static void AuswahlMenue()
+        static void AnganbenAuswahl()
         {
-            Console.WriteLine("Bitte geben Sie '1' an um einen neuen Azubi anzulegen oder '0' um sich die Azubis anzeigen zu lassen!");
+            Console.WriteLine("Bitte geben Sie '1' '2' oder '3' um neue Azubi anzulegen oder '0' um sich die Azubis anzeigen zu lassen!");
             switch (Console.ReadLine())
             {
                 case "1":
                     AzubiEingabe();
                     break;
-                case "0":
-                    AzubiAusgabe();
-                    break;
+              //case "2":
+              //      AzubiEingabezwei();
+              //      break;
+              //  case "3":
+              //      AzubiEingabedrei();
+              //      break;
                 default:
-                    Console.WriteLine("Dies war keine gültige Eingabe, drücken sie eine beliebige Taste um zur erneuten Auswahl zu kommen!");
-                    Console.ReadKey();
-                    AuswahlMenue();
-                break;
+                    AnganbenAuswahl();
+                    break;
             }
         }
-        static object AzubiEingabe()
+        static void AzubiEingabe()
         {
             Console.WriteLine("Bitte geben Sie den Nachnamen an!");
             string Nachname = Console.ReadLine();
             Console.WriteLine("Bitte geben Sie den Vornamen an!");
             string Vorname = Console.ReadLine();
-            Console.WriteLine("Bitte geben Sie den Nachnamen an!");
+            Console.WriteLine("Bitte geben Sie das Geburtsdatum an!");
             DateTime GeburtsDatum = Convert.ToDateTime(Console.ReadLine());
             Azubi MeinAzubi = new Azubi(Nachname, Vorname, GeburtsDatum);
-            AzubiAnzeigen(MeinAzubi);
-            return (MeinAzubi);
+            MeinAzubi.gibSteckbriefAus();
+            Console.WriteLine("beenden? JA = '0' Nein = 1");
+            switch (Console.ReadLine())
+            {
+                case "0":
+                    Exit();
+                    break;
+                case "1":
+                    AzubiEingabe();
+                    break;
+                default:
+                    Console.WriteLine("Falsche Eingabe, das Programm wird jetzt gestoppt");
+                    Console.WriteLine("Drücke beliebige Taste");
+                    Console.ReadKey();
+                    Exit();
+                    break;
+            }
         }
-        static void AzubiAnzeigen(object MeinAzubi)
+        static void Exit()
         {
-            Console.WriteLine(MeinAzubi);
-            Console.ReadLine();
-        }
-        static void AzubiAusgabe()
-        {
-
+            Environment.Exit(2);
         }
     }
 }
