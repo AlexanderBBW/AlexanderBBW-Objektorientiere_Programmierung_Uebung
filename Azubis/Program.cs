@@ -28,33 +28,26 @@ namespace Azubis
                 Console.WriteLine("Name:" + " " + Nachname + " " + "Vorname: " + " " + Vorname + " " + "Alter:" + " " + berechneAlter());
             }
         }
-        class Program
+    class AzubiVerwaltung
+    {
+        List<Azubi> MeineAzubiListe = new List<Azubi>();
+        public void AnganbenAuswahl()
         {
-            static void Main(string[] args)
-            {
-            List<Azubi> MeineAzubiListe = new List<Azubi>();
-                AnganbenAuswahl();
-            }
-        static void AnganbenAuswahl()
-        {
-            Console.WriteLine("Bitte geben Sie '1' '2' oder '3' um neue Azubi anzulegen oder '0' um sich die Azubis anzeigen zu lassen!");
+            Console.WriteLine("0 Zeigt alle aktullen Azubis an und 1 lässt Sie einen neuen angeben!");
             switch (Console.ReadLine())
             {
+                case "0":
+                    //AzubiAnzeigen();
+                    break;
                 case "1":
                     AzubiEingabe();
                     break;
-              //case "2":
-              //      AzubiEingabezwei();
-              //      break;
-              //  case "3":
-              //      AzubiEingabedrei();
-              //      break;
                 default:
                     AnganbenAuswahl();
                     break;
             }
         }
-        static void AzubiEingabe()
+        public void AzubiEingabe()
         {
             Console.WriteLine("Bitte geben Sie den Nachnamen an!");
             string Nachname = Console.ReadLine();
@@ -63,24 +56,41 @@ namespace Azubis
             Console.WriteLine("Bitte geben Sie das Geburtsdatum an!");
             DateTime GeburtsDatum = Convert.ToDateTime(Console.ReadLine());
             Azubi MeinAzubi = new Azubi(Nachname, Vorname, GeburtsDatum);
+            MeineAzubiListe.Add(MeinAzubi);
             MeinAzubi.gibSteckbriefAus();
-            Console.WriteLine("beenden? JA = '0' Nein = 1");
-            switch (Console.ReadLine())
-            {
-                case "0":
-                    Exit();
-                    break;
-                case "1":
-                    AzubiEingabe();
-                    break;
-                default:
-                    Console.WriteLine("Falsche Eingabe, das Programm wird jetzt gestoppt");
-                    Console.WriteLine("Drücke beliebige Taste");
-                    Console.ReadKey();
-                    Exit();
-                    break;
-            }
         }
+    }
+        class Program
+        {
+       
+        static void Main(string[] args)
+            {
+
+            AzubiVerwaltung();
+
+/*
+            public void AuswahlWeitermachen()
+            {
+                Console.WriteLine("beenden? JA = '0' Nein = 1");
+                switch (Console.ReadLine())
+                {
+                    case "0":
+                        Exit();
+                        break;
+                    case "1":
+                        AzubiEingabe();
+                        break;
+                    default:
+                        Console.WriteLine("Falsche Eingabe, das Programm wird jetzt gestoppt");
+                        Console.WriteLine("Drücke beliebige Taste");
+                        Console.ReadKey();
+                        Exit();
+                        break;
+                }
+                }
+            }*/
+        }
+       
         static void Exit()
         {
             Environment.Exit(2);
