@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 namespace Azubis
 {
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            AzubiVerwaltung azubiVerwaltung = new AzubiVerwaltung();     
+        }
         public class Azubi
         {
             public string Nachname { get; set; }
@@ -20,8 +26,11 @@ namespace Azubis
             public int berechneAlter()
             {
                 int alter = DateTime.Now.Year - Geburtsdatum.Year;
-                if (DateTime.Now.CompareTo(Geburtsdatum) < 0) { alter--; }
-                 return (alter);
+                if (DateTime.Now.CompareTo(Geburtsdatum) < 0) 
+                { 
+                    alter--;
+                }
+                return (alter);
             }
             public void gibSteckbriefAus()
             {
@@ -30,20 +39,27 @@ namespace Azubis
         }
     class AzubiVerwaltung
     {
-        List<Azubi> MeineAzubiListe = new List<Azubi>();
-        public void AnganbenAuswahl()
+       public List<Azubi> MeineAzubiListe = new List<Azubi>();
+        public AzubiVerwaltung()
+        {
+                AngabenAuswahl();
+        }
+        protected void AngabenAuswahl()
         {
             Console.WriteLine("0 Zeigt alle aktullen Azubis an und 1 lässt Sie einen neuen angeben!");
+                Console.WriteLine("2 zum beenden des Programmes --> Löscht alle Azubis");
             switch (Console.ReadLine())
             {
-                case "0":
-                    //AzubiAnzeigen();
-                    break;
+                //case "0":
+                    //break;
                 case "1":
                     AzubiEingabe();
                     break;
+                    case "2":
+                        Exit();
+                        break;
                 default:
-                    AnganbenAuswahl();
+                    AngabenAuswahl();
                     break;
             }
         }
@@ -60,40 +76,16 @@ namespace Azubis
             MeinAzubi.gibSteckbriefAus();
         }
     }
-        class Program
-        {
-       
-        static void Main(string[] args)
-            {
-
-            AzubiVerwaltung();
-
-/*
-            public void AuswahlWeitermachen()
-            {
-                Console.WriteLine("beenden? JA = '0' Nein = 1");
-                switch (Console.ReadLine())
-                {
-                    case "0":
-                        Exit();
-                        break;
-                    case "1":
-                        AzubiEingabe();
-                        break;
-                    default:
-                        Console.WriteLine("Falsche Eingabe, das Programm wird jetzt gestoppt");
-                        Console.WriteLine("Drücke beliebige Taste");
-                        Console.ReadKey();
-                        Exit();
-                        break;
-                }
-                }
-            }*/
-        }
-       
         static void Exit()
         {
             Environment.Exit(2);
         }
     }
+    //class AnzubiAnzeigen
+    //{
+    //    public void Azubianzeigen()
+    //    {
+
+    //    }
+    //}
 }
