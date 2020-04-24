@@ -11,7 +11,7 @@ namespace Azubis
         }
         protected void AngabenAuswahl() //Auswahl ob die Azubis angezeigt werden sollen 
         {
-            while (true)
+            while (true) //Wird solange ausgeführt bis irgendwann das Programm vom Benutzer beendet wird.
             {
                 Console.WriteLine("0 Zeigt alle aktullen Azubis an und 1 lässt Sie einen neuen angeben!");
                 Console.WriteLine("2 zum beenden des Programmes --> Löscht alle Azubis!");
@@ -22,18 +22,18 @@ namespace Azubis
                         AzubiAnzeigen();
                         break;
                     case "1":
-                        AzubiEingabe();
+                        AzubiEingabe(); //Eingabe des Azubis
                         break;
                     case "2":
-                        Environment.Exit(2);
+                        Environment.Exit(2); //Beenden des Programmes
                         break;
                     case "3":
-                        AusDrücken();
+                        AusDrücken(); //Zum schreiben in eine Datei
                         break;
                 }
             }       
         }
-        private int InputNumb()
+        private int InputNumb()//Eingabe für die Zahl wie viele Azubis eingegeben werden sollen
         {
             int Numb = 0;
             while (true)
@@ -83,14 +83,14 @@ namespace Azubis
                 MeineAzubiListe.Add(MeinAzubi); //Fügt den Azubi zur Liste hinzu               
             }
         }
-        public void AzubiAnzeigen()
+        public void AzubiAnzeigen()//Gibt die Objekte an
         {
             foreach (var item in MeineAzubiListe)
             {
                 item.gibSteckbriefAus();
             }
         }
-        public void AusDrücken()
+        public void AusDrücken() //schreibt die AzubiListe in eine Textdatei
         {
             System.IO.TextWriter tw = new System.IO.StreamWriter("Azubi_Ausgabe.txt");
             foreach (var item in MeineAzubiListe)
